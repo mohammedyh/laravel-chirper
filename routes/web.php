@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/chirps');
 
 Route::resource('chirps', ChirpController::class)
-    ->only(['index', 'store'])
+    ->only(['index', 'store', 'edit', 'update'])
     ->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
