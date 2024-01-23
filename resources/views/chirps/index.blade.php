@@ -4,7 +4,7 @@
             @csrf
             <textarea name="message" placeholder="{{ __('What\'s on your mind?') }}"
                 class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">{{ old('message') }}</textarea>
-            <x-input-error :messages="$errors->get('message')" class="mt-2" />
+            <x-input-error :messages="$errors->store->get('message')" class="mt-2" />
             <x-primary-button class="mt-4">{{ __('Chirp') }}</x-primary-button>
         </form>
 
@@ -21,7 +21,7 @@
                             <div>
                                 <span class="text-gray-800">{{ $chirp->user->name }}</span>
                                 <small class="ml-2 text-sm text-gray-600">
-                                    {{ $chirp->created_at->format('j M Y, g:ia') }}
+                                    {{ $chirp->created_at->format('j M Y, g:i a') }}
                                 </small>
                             </div>
                         </div>
