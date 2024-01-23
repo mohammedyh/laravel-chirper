@@ -4,3 +4,4 @@ Learning Laravel by following the official [Bootcamp](https://bootcamp.laravel.c
 
 Todos:
 - [ ] Implement Form Request Validation to reduce duplication
+- [ ] Add tests
