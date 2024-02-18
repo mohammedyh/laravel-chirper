@@ -12,10 +12,11 @@ new class extends Component {
         $validated = $this->validate();
 
         auth()->user()->chirps()->create($validated);
-        
+
+        $this->dispatch('chirp-created');
+
         $this->reset();
     }
-
 }; ?>
 
 <div>
