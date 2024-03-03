@@ -8,6 +8,6 @@ class ChirpController extends Controller
 {
     public function index(): View
     {
-        return view('chirps', []);
+        return view('chirps');
     }
 }
