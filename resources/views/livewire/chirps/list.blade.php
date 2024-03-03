@@ -13,7 +13,7 @@ new class extends Component {
 
     public function mount(): void
     {
-        $this->chirps = $this->getChirps();
+        $this->getChirps();
     }
 
     #[On('chirp-created')]
