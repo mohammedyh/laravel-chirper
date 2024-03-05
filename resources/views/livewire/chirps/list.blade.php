@@ -59,7 +59,7 @@ new class extends Component {
                         @endunless
                     </div>
 
-                    @if ($chirp->user->is(auth()->user()))
+                    @if ($chirp->user()->is(auth()->user()))
                         <x-dropdown>
                             <x-slot name="trigger">
                                 <button>
