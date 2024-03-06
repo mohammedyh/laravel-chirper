@@ -37,6 +37,15 @@ new class extends Component {
         $this->getChirps();
     }
 
+    public function delete(Chirp $chirp): void
+    {
+        $this->authorize('delete', $chirp);
+
+        $chirp->delete();
+
+        $this->getChirps();
+    }
+
 }; ?>
 
 <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
@@ -65,13 +74,19 @@ new class extends Component {
                                 <button>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400"
                                          viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                                        <path
+                                            d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
                                     </svg>
                                 </button>
                             </x-slot>
                             <x-slot name="content">
-                                <x-dropdown-link wire:click="edit({{ $chirp->id }})">
+                                <x-dropdown-link class="cursor-pointer" wire:click="edit({{ $chirp->id }})">
                                     {{ __('Edit') }}
+                                </x-dropdown-link>
+
+                                <x-dropdown-link class="cursor-pointer" wire:click="delete({{ $chirp->id }})"
+                                                 wire:confirm="Are you sure to delete this chirp?">
+                                    {{ __('Delete') }}
                                 </x-dropdown-link>
                             </x-slot>
                         </x-dropdown>
